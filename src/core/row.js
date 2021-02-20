@@ -110,7 +110,7 @@ class Rows {
   }
 
   // what: all | format | text
-  copyPaste(srcCellRange, dstCellRange, what, autofill = false, cb = () => {}) {
+  copyPaste(srcCellRange, dstCellRange, what, autofill = false, cb = () => { }) {
     const {
       sri, sci, eri, eci,
     } = srcCellRange;
@@ -153,8 +153,9 @@ class Rows {
                       } else {
                         yn = n - 1;
                       }
-                      if (/^\d+$/.test(word)) return word;
-                      return expr2expr(word, xn, yn);
+                      // if (/^\d+$/.test(word) || /^s+\d/.test(word)) return word;
+                      return word;
+                      // return expr2expr(word, xn, yn);
                     });
                   } else if ((rn <= 1 && cn > 1 && (dsri > eri || deri < sri))
                     || (cn <= 1 && rn > 1 && (dsci > eci || deci < sci))
