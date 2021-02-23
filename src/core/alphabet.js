@@ -29,6 +29,7 @@ export function stringAt(index) {
  * @returns {number}
  */
 export function indexAt(str) {
+  str = str.toUpperCase();
   let ret = 0;
   for (let i = 0; i < str.length - 1; i += 1) {
     const cindex = str.charCodeAt(i) - 65;
@@ -68,6 +69,7 @@ export function expr2xy(src) {
  * @returns {tagA1}
  */
 export function xy2expr(x, y) {
+  // console.log(`${stringAt(x)}${y + 1}`, 'dddddddddddddd');
   return `${stringAt(x)}${y + 1}`;
 }
 
@@ -82,8 +84,9 @@ export function xy2expr(x, y) {
 export function expr2expr(src, xn, yn, condition = () => true) {
   if (xn === 0 && yn === 0) return src;
   const [x, y] = expr2xy(src);
+
   if (!condition(x, y)) return src;
-  return xy2expr(x + xn, y + yn);
+  return xy2expr(x + xn, y + yn).toUpperCase();
 }
 
 export default {

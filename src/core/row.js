@@ -154,9 +154,8 @@ class Rows {
                         yn = n - 1;
                         // test
                       }
-                      // if (/^\d+$/.test(word) || /^s+\d/.test(word)) return word;
-                      return word;
-                      // return expr2expr(word, xn, yn);
+                      if (/^\d+$/.test(word) || /^s+\d/.test(word)) return word;
+                      return expr2expr(word, xn, yn);
                     });
                   } else if ((rn <= 1 && cn > 1 && (dsri > eri || deri < sri))
                     || (cn <= 1 && rn > 1 && (dsci > eci || deci < sci))
